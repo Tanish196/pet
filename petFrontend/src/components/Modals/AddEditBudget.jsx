@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdDateRange } from "react-icons/md";
-import { CalendarDate } from "../calendarDate";
+import { CalendarDate } from "../CalendarDate";
 import { useCategory } from "@/contexts/CategoryContext";
 import axiosInstance from "@/utils/axiosInstance";
 import { MdClose } from "react-icons/md";
