@@ -14,11 +14,11 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log("✅ MongoDB conn
 
 app.use(express.json())
 
-app.use(
-    cors({
-        origin: "*",
-    })
-)
+app.use(cors({
+    origin: "https://pet-frontend.vercel.app", // your Vercel frontend
+    credentials: true
+}));
+
 
 // Trial
 app.get('/', (req, res) => {
@@ -151,7 +151,7 @@ app.delete("/delete-category/:name", authenticateToken, async (req, res) => {
             { new: true } // ensures the updated document is returned
         );
 
-        res.json({ 
+        res.json({
             message: `Category '${categoryToDelete}' removed along with its transactions and budgets.`,
             categories: updatedUser.category   // return updated categories
         });
@@ -356,31 +356,31 @@ app.get("/get-transactions", authenticateToken, async (req, res) => {
 
 // Gets transactions of needed accounts
 app.get('/get-accounts-transactions', authenticateToken, async (req, res) => {
-  try {
-    const account = req.query.account?.trim(); // remove extra spaces
-    // const user = req.user;
-    const { user } = req.user
+    try {
+        const account = req.query.account?.trim(); // remove extra spaces
+        // const user = req.user;
+        const { user } = req.user
 
-    if (!user || !account) {
-      return res.status(400).json({ error: true, message: "Invalid request. User or account not found" });
+        if (!user || !account) {
+            return res.status(400).json({ error: true, message: "Invalid request. User or account not found" });
+        }
+
+        console.log("Fetching transactions for User ID:", user._id);
+        console.log("Account queried:", account);
+
+        // Case-insensitive search for account name
+        const transactions = await Transaction.find({
+            userId: user._id,
+            accountCat: account
+        });
+
+        console.log("Transactions found:", transactions.length);
+
+        return res.json({ transactions, user, account });
+    } catch (err) {
+        console.error("Error fetching account transactions:", err);
+        return res.status(500).json({ error: true, message: "Internal server error" });
     }
-
-    console.log("Fetching transactions for User ID:", user._id);
-    console.log("Account queried:", account);
-
-    // Case-insensitive search for account name
-    const transactions = await Transaction.find({
-      userId: user._id,
-      accountCat: account
-    });
-
-    console.log("Transactions found:", transactions.length);
-
-    return res.json({ transactions, user, account });
-  } catch (err) {
-    console.error("Error fetching account transactions:", err);
-    return res.status(500).json({ error: true, message: "Internal server error" });
-  }
 });
 
 
@@ -456,7 +456,7 @@ app.post('/create-budget', authenticateToken, async (req, res) => {
 app.get('/get-budgets', authenticateToken, async (req, res) => {
     const { user } = req.user
     try {
-        const today = new Date()  
+        const today = new Date()
 
         const budgets = await Budget.find({
             userId: user._id,
