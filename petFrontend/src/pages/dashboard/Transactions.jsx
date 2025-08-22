@@ -6,7 +6,7 @@ import { IoMdAdd } from "react-icons/io";
 import Modal from "react-modal";
 import TransactionCard from "../../components/Cards/TransactionCard";
 import axiosInstance from "../../utils/axiosInstance";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import dayjs from "dayjs";
 import AddEditTransaction from "@/components/Modals/AddEditTransaction";
 // import AddEditTransaction from "../../components/Modals/AddEditTransaction";
@@ -165,7 +165,7 @@ const Transactions = () => {
                       onClick={prevMonth}
                       className="p-2 rounded-full"
                     >
-                      <ChevronLeft className="text-lg hover:text-white" />
+                      <MdNavigateBefore className="text-lg hover:text-white" />
                     </button>
                     <h2 className="text-sm">
                       {currentMonth.format("MMMM YYYY")}
@@ -174,7 +174,7 @@ const Transactions = () => {
                       onClick={nextMonth}
                       className="p-2 rounded-full"
                     >
-                      <ChevronRight className="text-lg hover:text-white" />
+                      <MdNavigateNext className="text-lg hover:text-white" />
                     </button>
                   </div>
 

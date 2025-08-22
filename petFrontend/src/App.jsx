@@ -15,15 +15,15 @@ import { CatProvider } from './contexts/CategoryContext'
 
 const routes = (
   <Routes>
-    <Route path='/dashboard' exact element={<Dashboard />} />
-    <Route path='/signup' exact element={<SignUp />} />
-    <Route path='/login' exact element={<LogIn />} />
-    <Route path='/' exact element={<Home />} />
-    <Route path='/accounts' exact element={<Accounts />} />
-    <Route path='/budgets' exact element={<Budgets />} />
-    <Route path='/exportDoc' exact element={<ExportDoc />} />
-    {/* <Route path='/autopay' exact element={<ScheduledTransactions />} /> */}
-    <Route path='/transactions' exact element={<Transactions />} />
+    <Route path='/dashboard' element={<Dashboard />} />
+    <Route path='/signup' element={<SignUp />} />
+    <Route path='/login' element={<LogIn />} />
+    <Route path='/' element={<Home />} />
+    <Route path='/accounts' element={<Accounts />} />
+    <Route path='/budgets' element={<Budgets />} />
+    <Route path='/exportDoc' element={<ExportDoc />} />
+    {/* <Route path='/autopay' element={<ScheduledTransactions />} /> */}
+    <Route path='/transactions' element={<Transactions />} />
   </Routes>
 )
 
