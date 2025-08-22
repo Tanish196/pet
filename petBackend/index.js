@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log("✅ MongoDB conn
 app.use(express.json())
 
 app.use(cors({
-    origin: "https://pet-frontend.vercel.app", // your Vercel frontend
+    origin: "https://pet-red.vercel.app", // your Vercel frontend
     credentials: true
 }));
 
