@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Sidebar'
-import Header from '../../components/header'
+import Header from '../../components/Header'
 import { useSidebar } from '../../contexts/SidebarContext'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { useUser } from '@/contexts/UserInfoContext';

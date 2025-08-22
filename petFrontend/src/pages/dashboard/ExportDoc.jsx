@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Sidebar';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 import { useSidebar } from '../../contexts/SidebarContext';
 import { useEffect, useState } from 'react';
 import axiosInstance from '@/utils/axiosInstance';

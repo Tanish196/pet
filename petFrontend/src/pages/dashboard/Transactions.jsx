@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
-import Header from "../../components/header";
+import Header from "../../components/Header";
 import { useSidebar } from "../../contexts/SidebarContext";
 import { IoMdAdd } from "react-icons/io";
 import Modal from "react-modal";
