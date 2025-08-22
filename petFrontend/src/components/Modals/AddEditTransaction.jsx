@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { MdDateRange, MdClose } from "react-icons/md";
-import { CalendarDate } from "../calendarDate";
+import { CalendarDate } from "../CalendarDate";
 import { useCategory } from "@/contexts/CategoryContext";
 import axiosInstance from "@/utils/axiosInstance";
 import dayjs from "dayjs";
